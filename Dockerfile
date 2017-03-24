@@ -1,5 +1,5 @@
-FROM nginx:latest
+FROM nginx:stable
 
 ADD index.html /usr/share/nginx/html
-ADD nginx.conf /etc/nginx/nginx.conf 
+ADD nginx.conf /etc/nginx/nginx.conf
 
