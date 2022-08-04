@@ -3,7 +3,7 @@ name: publish
 on: [push]
 
 jobs:
-  publish-hello-world-image:
+  publish-maintenance-page-image:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,5 +12,8 @@ jobs:
     - name: Build the maintain Docker image
       run: |
         echo $CR_PAT | docker login ghcr.io -u hi-eu --password-stdin
+        docker build . --tag ghcr.io/hi-eu/maintenance-page:latest
+        docker run ghcr.io/hi-eu/maintenance-page:latest
+        docker push ghcr.io/hi-eu/maintenance-page:latest
       env:
         CR_PAT: ${{ secrets.CR_PAT }}
