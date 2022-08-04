@@ -13,7 +13,6 @@ jobs:
       run: |
         echo $CR_PAT | docker login ghcr.io -u hi-eu --password-stdin
         docker build . --tag ghcr.io/hi-eu/maintenance-page:latest
-        docker run ghcr.io/hi-eu/maintenance-page:latest
         docker push ghcr.io/hi-eu/maintenance-page:latest
       env:
         CR_PAT: ${{ secrets.CR_PAT }}
